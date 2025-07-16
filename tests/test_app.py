@@ -8,7 +8,7 @@ def client():
 def test_homepage(client):
     response = client.get("/")
     assert response.status_code == 200
-    assert "welcome" in response.get_json()["message"].lower()
+    assert "welcome" in response.get_json()["message"]
 
 def test_get_all_products(client):
     response = client.get("/products")

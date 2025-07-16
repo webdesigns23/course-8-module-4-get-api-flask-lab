@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from data import products
-pyt
+
 app = Flask(__name__)
 
 # TODO: Implement homepage route that returns a welcome message
