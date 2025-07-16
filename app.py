@@ -6,7 +6,7 @@ app = Flask(__name__)
 # TODO: Implement homepage route that returns a welcome message
 @app.route("/", methods=["GET"])
 def homepage():
-    return jsonify(["message"]), 200
+    return jsonify({"message"}), 200
 
 # TODO: Implement GET /products route that returns all products or filters by category
 @app.route("/products", methods=["GET"])
@@ -22,7 +22,7 @@ def get_products():
 @app.route("/products/<int:id>", methods=["GET"])
 def get_product_by_id(id):
     # TODO: Return product by ID or 404, generator expression
-    product = next((product for product in products if product["id"] == id))
+    product = next((product for product in products if product["id"] == id), None)
     if product:
         return jsonify(product), 200
     return jsonify({"error": "Product not found"}), 404
